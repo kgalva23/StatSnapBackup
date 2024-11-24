@@ -12,7 +12,9 @@ load_dotenv()
 #Initialize Supabase client
 supabase = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
 
-app,rt = fast_app()
+app,rt = fast_app(
+    hdrs=(Link(rel="icon", type="assets/x-icon", href="/assets/favicon.png"),),
+)
 
 # Global variable to store the logged-in user ID
 current_user_id = None
